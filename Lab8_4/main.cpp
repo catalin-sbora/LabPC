@@ -54,33 +54,33 @@ int main(int argc, char** argv)
     char currentName[256] = {0};
     char* arguments[100] = {0};
     int processed = 0;
-    struct FMat listaFunctii[2];
+    struct FMat functionsList[2];
     int i = 0;
     int j = 0;
-    strcpy(listaFunctii[0].name, "ridicare_la_putere");
-    listaFunctii[0].nArg = 2;
-    listaFunctii[0].functionToExecute = CustomPow;
+    strcpy(functionsList[0].name, "ridicare_la_putere");
+    functionsList[0].nArg = 2;
+    functionsList[0].functionToExecute = CustomPow;
     
-    strcpy(listaFunctii[1].name, "radical");
-    listaFunctii[1].nArg = 1;
-    listaFunctii[1].functionToExecute = CustomSqrt;
+    strcpy(functionsList[1].name, "radical");
+    functionsList[1].nArg = 1;
+    functionsList[1].functionToExecute = CustomSqrt;
     
     
     printf("Functia care trebuie executata: ");
     scanf("%s", currentName);
     
-    for (i = 0; i < sizeof(listaFunctii)/sizeof(struct FMat); i++)
+    for (i = 0; i < sizeof(functionsList)/sizeof(struct FMat); i++)
     {
-        if (strcasecmp(listaFunctii[i].name, currentName) == 0)
+        if (strcasecmp(functionsList[i].name, currentName) == 0)
         {
-            for (j  = 0; j < listaFunctii[i].nArg; j++)
+            for (j  = 0; j < functionsList[i].nArg; j++)
             {
                 printf("Arg. %d", j);
                 arguments[j] = (char*)malloc(256);
                 scanf("%s", arguments[j]);
             }
             
-            double result = listaFunctii[i].functionToExecute(arguments, listaFunctii[i].nArg);
+            double result = functionsList[i].functionToExecute(arguments, functionsList[i].nArg);
             printf("Rezultatul este: %lf\n", result);
             processed = 1;
         }
