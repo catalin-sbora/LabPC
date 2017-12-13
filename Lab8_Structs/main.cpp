@@ -17,7 +17,7 @@
 typedef struct _ComplexNumber
 {
     double real;
-    double imagine;
+    double image;
     
 }ComplexNumber;
 
@@ -26,7 +26,7 @@ ComplexNumber Add(ComplexNumber firstNumber, ComplexNumber secondNumber)
 {
     ComplexNumber retVal;
     
-    retVal.imagine = firstNumber.imagine + secondNumber.imagine;
+    retVal.image = firstNumber.image + secondNumber.image;
     retVal.real = firstNumber.real + secondNumber.real;
     
     return retVal;
@@ -35,7 +35,7 @@ ComplexNumber Add(ComplexNumber firstNumber, ComplexNumber secondNumber)
 ComplexNumber Substract(ComplexNumber firstNumber, ComplexNumber secondNumber)
 {
     ComplexNumber retVal;
-    retVal.imagine = firstNumber.imagine - secondNumber.imagine;
+    retVal.image = firstNumber.image - secondNumber.image;
     retVal.real = firstNumber.real - secondNumber.real;
    
     return retVal;
@@ -44,8 +44,8 @@ ComplexNumber Substract(ComplexNumber firstNumber, ComplexNumber secondNumber)
 ComplexNumber Multiply(ComplexNumber firstNumber, ComplexNumber secondNumber)
 {
     ComplexNumber retVal;
-    retVal.real = firstNumber.real*secondNumber.real - firstNumber.imagine * secondNumber.imagine;
-    retVal.imagine = firstNumber.real * secondNumber.imagine + firstNumber.imagine*secondNumber.real;
+    retVal.real = firstNumber.real*secondNumber.real - firstNumber.image * secondNumber.image;
+    retVal.image = firstNumber.real * secondNumber.image + firstNumber.image*secondNumber.real;
     return retVal;
 }
 
@@ -56,14 +56,14 @@ ComplexNumber ReadComplexNumber()
     printf("RE: ");
     scanf("%lf", &retVal.real);
     printf("IM: ");
-    scanf("%lf", &retVal.imagine);
+    scanf("%lf", &retVal.image);
     
     return retVal;
 }
 
 void DisplayComplexNumber(ComplexNumber number)
 {
-    printf("%4.2lf + %4.2lf*i\n", number.real, number.imagine);
+    printf("%4.2lf + %4.2lf*i\n", number.real, number.image);
 }
 
 void DoAdd()
